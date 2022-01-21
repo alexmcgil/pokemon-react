@@ -7,6 +7,11 @@ function App() {
     return (
         <Container sx={{
             padding: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "space-between",
+            alignItems: "center",
+            flexDirection: "column",
         }}>
                 <ContainerReact/>
         </Container>

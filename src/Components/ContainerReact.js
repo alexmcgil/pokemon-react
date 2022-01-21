@@ -8,7 +8,7 @@ function ContainerReact(){
 
     return  <Box
         sx={{
-            margin: "100px auto",
+            margin: "100px 0 0",
         }}
     >
     <Title />
