@@ -2,12 +2,15 @@ import React from 'react';
 import ContainerReact from "./Components/ContainerReact";
 import {Container} from "@mui/material";
 
+function App() {
 
-function App(){
-
-	return <Container fixed>
-		<ContainerReact />
-	</Container>
+    return (
+        <Container sx={{
+            padding: 0,
+        }}>
+                <ContainerReact/>
+        </Container>
+    )
 }
 
 export default App;

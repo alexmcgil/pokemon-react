@@ -1,12 +1,152 @@
 import React from 'react';
-import {Box} from "@mui/material";
+import {Box, createTheme, CssBaseline, SvgIcon, ThemeProvider} from "@mui/material";
+import RalewayTtf from './../fonts/Raleway-VariableFont_wght.ttf';
+
+const themeInfo = createTheme({
+    typography: {
+        fontFamily: 'Raleway, Arial',
+        fontWeight: 500,
+        fontSize: 12,
+    },
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: `
+        @font-face {
+          font-family: 'Raleway';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 500;
+          src: local('Raleway'), local('Raleway-Regular'), url(${RalewayTtf}) format('ttf');
+          unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
+        }
+      `,
+        },
+    },
+});
+
+const themeAdditionInfo = createTheme({
+    typography: {
+        fontFamily: 'Raleway, Arial',
+        fontWeight: 600,
+        fontSize: 12,
+    },
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: `
+        @font-face {
+          font-family: 'Raleway';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 500;
+          src: local('Raleway'), local('Raleway-Regular'), url(${RalewayTtf}) format('ttf');
+          unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
+        }
+      `,
+        },
+    },
+});
 
 
-function Title(){
+function Title() {
 
-    return <>
-        <Box ></Box>
-    </>
+    return (
+        <header>
+            <Box
+                sx={{
+                    padding: "0 150px",
+                    height: "30.66px",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: 'space-between',
+                }}>
+                <Box
+                    sx={{
+                        width: 107,
+                        height: 28,
+                        fontWeight: 500,
+                        fontSize: "12px",
+                        fontFamily: 'Raleway, Arial',
+                        borderColor: "#FFF",
+                        borderWidth: "1px",
+                        borderStyle: "solid",
+                        boxSizing: "border-box",
+                    }}
+                >
+                    <ThemeProvider theme={themeInfo}>
+                        <CssBaseline/>
+                        <Box
+                            sx={{
+                                width: "93px",
+                                height: "14px",
+                                margin: "7px",
+                                lineHeight: "14px",
+                                cursor: "default"
+                            }}>
+                            ПОКЕМОНЫ&nbsp;API
+                        </Box>
+                    </ThemeProvider>
+                </Box>
+                <Box
+                    sx={{
+                        width: "142.25px",
+                        height: "30.66px",
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        position: "relative"
+                    }}>
+                    <ThemeProvider theme={themeAdditionInfo}>
+                        <CssBaseline/>
+                        <Box sx={{
+                            position: "relative"
+                        }}>
+                            <SvgIcon
+                                sx={{
+                                    width: "24.25px",
+                                    height: "30.66px",
+                                    position: "relative",
+                                    top: "2px"
+                                }}
+                                viewBox="0 0 25 31" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd"
+                                      d="M14.9084 12.2187C14.7547 11.354 13.9564 10.7727 13.1124 10.9227C12.2742 11.0717 11.7209 11.9026 11.8729 12.7582L12.7146 17.4937L11.7028 17.6735L9.93113 7.70562C9.77561 6.83059 8.97586 6.24098 8.1318 6.39099C7.29357 6.53997 6.73845 7.36063 6.89566 8.24513L8.81631 19.0515C6.32285 17.1107 3.12935 15.0578 2.21404 16.4302C1.31805 17.7736 4.71484 20.433 9.90176 26.6424C12.2388 29.4401 14.8782 31.1926 18.6825 30.517C22.8736 29.7721 25.6444 25.6418 24.8712 21.2917L23.3792 12.8967C23.2239 12.023 22.4243 11.4344 21.5803 11.5844C20.7421 11.7334 20.1888 12.5646 20.3437 13.4362L20.8092 16.055L19.7973 16.2348L19.1424 12.5499C18.9887 11.685 18.1904 11.1035 17.3463 11.2536C16.5081 11.4025 15.9523 12.2191 16.1069 13.0895L16.5752 15.7241L15.5634 15.904L14.9084 12.2187Z"
+                                      fill="white"/>
+                                <path
+                                    d="M16.7504 8.44786L16.7046 9.51161L12.5931 9.26753L12.6389 8.20379L16.7484 8.44774L16.7504 8.44786Z"
+                                    fill="#1986EC"/>
+                                <path d="M7.51714 0L8.26377 4.20083L7.25195 4.38067L6.50532 0.179834L7.51714 0Z"
+                                      fill="#1986EC"/>
+                                <path
+                                    d="M11.5709 5.64038L10.789 4.93738L13.4646 1.73474L14.2463 2.43775L11.5709 5.64038Z"
+                                    fill="#1986EC"/>
+                                <path
+                                    d="M4.93363 10.6289L4.52414 9.64605L0.748535 11.2919L1.15802 12.2748L4.93363 10.6289Z"
+                                    fill="#1986EC"/>
+                                <path
+                                    d="M4.64343 6.87161L5.13513 5.94227L1.51993 3.85764L1.02823 4.78698L4.64343 6.87161Z"
+                                    fill="#1986EC"/>
+                            </SvgIcon>
+                        </Box>
+
+                        <Box
+                            sx={{
+                                marginLeft: "10px",
+                                fontFamily: "Raleway, Arial",
+                                fontSize: "12px",
+                                lineHeight: "12px",
+                                textAlign: "left",
+                                verticalAlign: "top",
+                                cursor: "default"
+                            }}>
+                            Нажмите&nbsp;на<br/>
+                            нужного&nbsp;Покемона
+                        </Box>
+                    </ThemeProvider>
+                </Box>
+            </Box>
+        </header>
+    )
 }
 
 export default Title;
