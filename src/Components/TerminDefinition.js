@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Box, createTheme, ThemeProvider, Typography} from "@mui/material";
 
+
+// Костомная тема для заголовка и параграфов
 const theme = createTheme({
     typography: {
         h1: {
@@ -25,7 +27,9 @@ const theme = createTheme({
 
 function TerminDefinition(props) {
 
+    // Стейт для выбранного покемона, которого будем отрисовывать
     const [selectedPokemon, setSelectedPokemon] = useState({
+        // Изначальные значения для стейта, данные приближены к тем, что будем парсить
         name: "Выберите покемона",
         sprites: {
             front_default: "https://avatars.githubusercontent.com/u/19692032?v=4"
@@ -39,12 +43,16 @@ function TerminDefinition(props) {
         moves: []
     })
 
+
+    // Асинхронная функция для запроса данных c сервера poke.io
     const getPokemon = (url) => {
+
+        // Если url не задан, функция прерывется return'ом
         if (url == null) {
             return
         }
         const axios = require('axios');
-        axios.get(url.toString())
+        axios.get(url)
             .then((response) => {
                 setSelectedPokemon(response.data)
             })
@@ -53,10 +61,12 @@ function TerminDefinition(props) {
             })
     }
 
+    // Хук для запроса на сервер, если через пропсы компонента получила ссылку на покемона
     useEffect(() => {
         getPokemon(props.url)
     }, [props.url])
 
+    // Кастомный inline стиль для изображения
     const imgStyle = {
         width: "160px",
         height: "160px",
@@ -73,6 +83,7 @@ function TerminDefinition(props) {
         }}
     >
         <ThemeProvider theme={theme}>
+            {/* Парсинг имени покемона */}
             <Typography variant="h1">{selectedPokemon.name}</Typography>
             <Box
                 sx={{
@@ -85,12 +96,15 @@ function TerminDefinition(props) {
                     alignItems: "center",
                     flexDirection: "column",
                 }}>
+                {/* Парсинг изображения покемона */}
                 <img
                     style={imgStyle}
                     src={selectedPokemon.sprites.front_default}
                     alt={selectedPokemon.name}/>
             </Box>
 
+            {/* Если компонента получила ссылку на покемона и сервер вернул данные,
+            то отрисовываем информацию о покемоне */}
             <Typography variant="p">
                 {selectedPokemon.moves.length > 0 && "Снялса в "}
                 {selectedPokemon.moves.length > 0 && selectedPokemon.moves.length}
