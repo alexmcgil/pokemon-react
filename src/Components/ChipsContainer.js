@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box} from "@mui/material";
 import Chips from "./Chips";
 import TerminDefinition from "./TerminDefinition";
@@ -6,19 +6,38 @@ import TerminDefinition from "./TerminDefinition";
 
 function ChipsContainer(){
 
-    // Заменяем подложку данных на настоящие в следующем коммите
-    const data = ["bulbasaur","ivysaur","venusaur","charmander", "charizard", "weedle","pikachu","rikachu","slowpoke", "magick carp"]
+    const [pokemons, setPokemons] = useState([
+        {name: "loading...", url: "https://pokeapi.co/404"}
+    ])
 
-    let dataTermin = {
-        name: "bulbasaur",
-        img: "picture.png",
-        description: {
-            number: 78,
-            id: 1,
-            height: 7,
-            attack: 49
-        }
+    const [selectedUrl, setSelectedUrl] = useState(null)
+
+    const get10Pokemon = () => {
+        const axios = require('axios');
+        axios.get("https://pokeapi.co/api/v2/pokemon/?limit=10")
+            .then((response) => {
+                setPokemons(response.data.results)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
+
+    const pokemonHandler = (e) => {
+        for (let name in pokemons){
+            if (pokemons[name]["name"] === e.target.textContent){
+                let url = pokemons[name].url
+                setSelectedUrl(url)
+
+            }
+        }
+
+    }
+
+    useEffect(() => {
+        get10Pokemon()
+    }, [])
+
 
 
     return  <Box
@@ -32,8 +51,8 @@ function ChipsContainer(){
             padding: "0 150px",
         }}
     >
-        <Chips data={data}/>
-        <TerminDefinition dataTermin={dataTermin}/>
+        <Chips pokemon={pokemons} pokemonHandler={pokemonHandler}/>
+        <TerminDefinition url={selectedUrl}/>
     </Box>
 }
 

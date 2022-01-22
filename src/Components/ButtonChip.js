@@ -31,7 +31,7 @@ function ButtonChips(props) {
                         cursor: "pointer"
 
                     }}>
-                    {props.pokemon}</Button>
+                    {props.pokemon.name}</Button>
         </Box>
     )
 }

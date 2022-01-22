@@ -3,10 +3,9 @@ import {Box} from "@mui/material";
 import ButtonChips from "./ButtonChip";
 
 
+function Chips(props) {
 
-function Chips(props){
-
-    return  <Box
+    return <Box
         sx={{
             width: "484px",
             margin: "auto 12px auto 0",
@@ -16,12 +15,11 @@ function Chips(props){
             justifyContent: "flex-start",
             alignItems: "center",
             alignContent: "center,"
-        }}
+        }} onClick={(e) => { props.pokemonHandler(e); }}
     >
-        {props.data.map((button , id) => (
-            <ButtonChips key={id} pokemon={button} />
-        ))}
-
+            {props.pokemon.map((val, index) => (
+                <ButtonChips key={index} pokemon={val}/>
+            ))}
     </Box>
 }
 
