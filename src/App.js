@@ -7,7 +7,7 @@ function App() {
 
     return (
         <Container sx={{
-            maxWidth: "1280px",
+            maxWidth: "100vw",
             padding: 0,
             display: "flex",
             justifyContent: "center",

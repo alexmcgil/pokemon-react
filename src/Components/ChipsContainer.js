@@ -4,7 +4,7 @@ import Chips from "./Chips";
 import TerminDefinition from "./TerminDefinition";
 
 
-function ChipsContainer(){
+function ChipsContainer() {
 
     // Стейт для массива покемонов, которые пойдут в кнопки
     const [pokemons, setPokemons] = useState([
@@ -31,8 +31,8 @@ function ChipsContainer(){
     // Обработчик события, чтобы отследить, какого покемона выбрали
     const pokemonHandler = (e) => {
         // Проверяем, у какого покемона совпадает поле "name" со значением кнопки
-        for (let key in pokemons){
-            if (pokemons[key].name === e.target.textContent){
+        for (let key in pokemons) {
+            if (pokemons[key].name === e.target.textContent) {
                 // Передаём в стейт ссылку на выбранного покемона
                 let url = pokemons[key].url
                 setSelectedUrl(url)
@@ -49,24 +49,24 @@ function ChipsContainer(){
     }, [])
 
 
+    return <main>
+        <Box
+            sx={{
+                margin: "54px auto",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                alignContent: "center",
+                justifyContent: "center",
+            }}
+        >
+            {/* В props'ах передаём список покемонов для кнопок и обработчик событий */}
+            <Chips pokemon={pokemons} pokemonHandler={pokemonHandler}/>
 
-    return  <Box
-        sx={{
-            margin: "54px auto",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            alignContent: "center",
-            justifyContent: "center",
-            padding: "0 150px",
-        }}
-    >
-        {/* В props'ах передаём список покемонов для кнопок и обработчик событий */}
-        <Chips pokemon={pokemons} pokemonHandler={pokemonHandler}/>
-
-        {/* В props'ах передаём ссылку на выбранного покемона */}
-        <TerminDefinition url={selectedUrl}/>
-    </Box>
+            {/* В props'ах передаём ссылку на выбранного покемона */}
+            <TerminDefinition url={selectedUrl}/>
+        </Box>
+    </main>
 }
 
 export default ChipsContainer;

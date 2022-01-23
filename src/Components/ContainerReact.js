@@ -7,16 +7,15 @@ import ChipsContainer from "./ChipsContainer";
 function ContainerReact() {
 
     return (
-        <main>
-            <Box
-                sx={{
-                    margin: "100px 0 0",
-                }}
-            >
-                <Title/>
-                <ChipsContainer/>
-            </Box>
-        </main>)
+        <Box
+            sx={{
+                margin: "100px auto 0",
+            }}
+        >
+            <Title/>
+            <ChipsContainer/>
+        </Box>
+)
 }
 
 export default ContainerReact;

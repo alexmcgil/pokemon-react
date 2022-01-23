@@ -6,6 +6,7 @@ import {Box, createTheme, ThemeProvider, Typography} from "@mui/material";
 const theme = createTheme({
     typography: {
         h1: {
+            width: "396px",
             fontSize: 48,
             color: "#A0A0A0",
             fontFamily: "Raleway",
@@ -14,9 +15,10 @@ const theme = createTheme({
             boxSizing: "border-box"
         },
         p: {
+            width: "396px",
             display: "block",
             fontFamily: "Raleway",
-            fontSize: "17px",
+            fontSize: 17,
             lineHeight: "26px",
             textAlign: "left",
             color: "#A0A0A0"
@@ -24,24 +26,30 @@ const theme = createTheme({
     },
 });
 
+const unselectedPokemon = {
+    // Изначальные значения для стейта, данные приближены к тем, что будем парсить
+    name: "Выберите покемона",
+    sprites: {
+        other: {
+            "official-artwork":
+                {
+                    front_default: "https://avatars.githubusercontent.com/u/19692032?v=4"
+                },
+        },
+    },
+    stats: [
+        null,
+        {
+            base_stat: null
+        },
+    ],
+    moves: []}
+
 
 function TerminDefinition(props) {
 
     // Стейт для выбранного покемона, которого будем отрисовывать
-    const [selectedPokemon, setSelectedPokemon] = useState({
-        // Изначальные значения для стейта, данные приближены к тем, что будем парсить
-        name: "Выберите покемона",
-        sprites: {
-            front_default: "https://avatars.githubusercontent.com/u/19692032?v=4"
-        },
-        stats: [
-            null,
-            {
-                base_stat: null
-            },
-        ],
-        moves: []
-    })
+    const [selectedPokemon, setSelectedPokemon] = useState(unselectedPokemon)
 
 
     // Асинхронная функция для запроса данных c сервера poke.io
@@ -68,8 +76,8 @@ function TerminDefinition(props) {
 
     // Кастомный inline стиль для изображения
     const imgStyle = {
-        width: "160px",
-        height: "160px",
+        width: "170px",
+        height: "170px",
         margin: "0 auto",
         objectFit: "cover"
     }
@@ -77,8 +85,8 @@ function TerminDefinition(props) {
     return <Box
         sx={{
             padding: "44px 44px 16px",
-            width: "484px",
-            height: "440px",
+            width: "calc(484px - 44px - 44px)",
+            height: "calc(500px - 44px - 16px)",
             backgroundColor: "#000",
         }}
     >
@@ -89,6 +97,7 @@ function TerminDefinition(props) {
                 sx={{
                     margin: "44px 0 39px",
                     marginTop: "44px",
+                    width: "396px",
                     height: "200px",
                     display: "flex",
                     justifyContent: "center",
@@ -99,7 +108,7 @@ function TerminDefinition(props) {
                 {/* Парсинг изображения покемона */}
                 <img
                     style={imgStyle}
-                    src={selectedPokemon.sprites.front_default}
+                    src={selectedPokemon.sprites.other["official-artwork"].front_default}
                     alt={selectedPokemon.name}/>
             </Box>
 

@@ -8,7 +8,6 @@ function Title() {
         <header>
             <Box
                 sx={{
-                    padding: "0 150px",
                     height: "30.66px",
                     display: "flex",
                     flexDirection: "row",
