@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.js": "/pokemon-react/static/js/main.dd0e2bf9.chunk.js",
+    "main.js.map": "/pokemon-react/static/js/main.dd0e2bf9.chunk.js.map",
+    "runtime-main.js": "/pokemon-react/static/js/runtime-main.7d29c730.js",
+    "runtime-main.js.map": "/pokemon-react/static/js/runtime-main.7d29c730.js.map",
+    "static/css/2.b717a7bf.chunk.css": "/pokemon-react/static/css/2.b717a7bf.chunk.css",
+    "static/js/2.53867095.chunk.js": "/pokemon-react/static/js/2.53867095.chunk.js",
+    "static/js/2.53867095.chunk.js.map": "/pokemon-react/static/js/2.53867095.chunk.js.map",
+    "static/js/3.ddfbcfad.chunk.js": "/pokemon-react/static/js/3.ddfbcfad.chunk.js",
+    "static/js/3.ddfbcfad.chunk.js.map": "/pokemon-react/static/js/3.ddfbcfad.chunk.js.map",
+    "index.html": "/pokemon-react/index.html",
+    "static/css/2.b717a7bf.chunk.css.map": "/pokemon-react/static/css/2.b717a7bf.chunk.css.map",
+    "static/js/2.53867095.chunk.js.LICENSE.txt": "/pokemon-react/static/js/2.53867095.chunk.js.LICENSE.txt",
+    "static/media/500.css": "/pokemon-react/static/media/raleway-vietnamese-500-normal.0dccf4fb.woff2",
+    "static/media/600.css": "/pokemon-react/static/media/raleway-vietnamese-600-normal.175ac4dc.woff2",
+    "static/media/700.css": "/pokemon-react/static/media/raleway-vietnamese-700-normal.b1da2091.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7d29c730.js",
+    "static/css/2.b717a7bf.chunk.css",
+    "static/js/2.53867095.chunk.js",
+    "static/js/main.dd0e2bf9.chunk.js"
+  ]
+}
